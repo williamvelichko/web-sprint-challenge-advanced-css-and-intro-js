@@ -209,7 +209,7 @@ Practice accessing data above by console.log-ing following items:
 
 //(1) Name of the first artist (0th index) in the array
 
-console.log(`"the artist at index 0 is ${artists[0].name}"`);
+//console.log(`"the artist at index 0 is ${artists[0].name}"`);
 
 //(2) Bio of the third artist (2nd index) in the array
 
@@ -217,7 +217,7 @@ console.log(`"the artist at index 0 is ${artists[0].name}"`);
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Fix this issue and console.log() to check your work. */
 artists[8].name = "Vincent Van Gogh";
-console.log(artists[8].name);
+//console.log(artists[8].name);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 Use getArtistByIndex to do the following:
@@ -231,7 +231,7 @@ function getArtistByIndex(array, index) {
   /*Your Code Here*/
   return `the artist at index ${index} is ${array[index].name}`;
 }
-console.log(getArtistByIndex(artists, 0));
+//console.log(getArtistByIndex(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use get20s to do the following: 
@@ -246,13 +246,13 @@ function get20s(array) {
   /*Your Code Here*/
   let newArray = [];
   for (let i = 0; i < array.length; i++) {
-    if (array.years > 1900 && array.years < 2000) {
-      newArray.push(array.name);
+    if (array[i].years === "1900-2000") {
+      newArray.push(array[i].name);
     }
   }
-  return array;
+  return newArray;
 }
-console.log(get20s(artists));
+//console.log(get20s(artists));
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use removeArtist to do the following:
 1. Receive an array
@@ -262,8 +262,16 @@ Use removeArtist to do the following:
 
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/) {
+function removeArtist(array, index) {
   /*Your Code Here*/
+  array.splice(index, 1);
+  let result = 0;
+  for (let prop in array) {
+    if (array.hasOwnProperty(prop)) {
+      result++;
+    }
+  }
+  return result;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -282,9 +290,18 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
+function addArtist(array) {
   /*Your Code Here*/
+  return array.push({
+    id: 20,
+    name: "william",
+    years: "2003 - 2021",
+    genre: "Web Design",
+    nationality: "american",
+    bio: "my favoreite food is pizza and ice cream.",
+  });
 }
+console.log(addArtist(artists));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
