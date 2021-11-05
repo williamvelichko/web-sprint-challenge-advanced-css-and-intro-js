@@ -246,13 +246,13 @@ function get20s(array) {
   /*Your Code Here*/
   let newArray = [];
   for (let i = 0; i < array.length; i++) {
-    if (array[i].years === "1900-2000") {
+    if (array[i].years > "1900" && array[i].years < "2000") {
       newArray.push(array[i].name);
     }
   }
   return newArray;
 }
-//console.log(get20s(artists));
+console.log(get20s(artists));
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use removeArtist to do the following:
 1. Receive an array
@@ -292,16 +292,18 @@ Example: addArtist(artists) should return the artists array with the above objec
 
 function addArtist(array) {
   /*Your Code Here*/
-  return array.push({
-    id: 20,
+  const newArray = {
+    id: "20",
     name: "william",
     years: "2003 - 2021",
     genre: "Web Design",
     nationality: "american",
     bio: "my favoreite food is pizza and ice cream.",
-  });
+  };
+  array.push(newArray);
+  return array;
 }
-console.log(addArtist(artists));
+//console.log(addArtist(artists));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
@@ -310,9 +312,17 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/) {
+function lotsOfArt(array) {
   /*Your Code Here*/
+  let newArray = [];
+  for (let i = 0; i < artists.length; i++) {
+    if (array[i].paintings > 100) {
+      newArray.push(array[i].name);
+    }
+  }
+  return newArray;
 }
+//console.log(lotsOfArt(artists));
 
 /* ***** END OF TASKS ***** */
 
